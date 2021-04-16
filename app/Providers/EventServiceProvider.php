@@ -18,6 +18,9 @@ class EventServiceProvider extends ServiceProvider
         Registered::class => [
             SendEmailVerificationNotification::class,
         ],
+        'App\Events\ChatEvent' => [
+            'App\Listeners\ChatListener',
+        ],
     ];
 
     /**
@@ -29,6 +32,8 @@ class EventServiceProvider extends ServiceProvider
     {
         parent::boot();
 
-        //
+        Event::listen('event.name', function ($foo, $bar) {
+            //
+        });
     }
 }
